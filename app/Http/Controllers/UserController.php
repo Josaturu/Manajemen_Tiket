@@ -79,8 +79,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email,'.$id,
-            // 'password' => 'required|string',
-            'password_confirmation' => 'nullable|same:password'
+            'roles' => 'required|string',
+            // 'password_confirmation' => 'nullable|same:password'
         ]);
 
         try {
@@ -88,6 +88,7 @@ class UserController extends Controller
             // dd($user->first());
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->roles = $request->roles;
             if ($request->password){
                 $user->password = Hash::make($request->password);
             }
