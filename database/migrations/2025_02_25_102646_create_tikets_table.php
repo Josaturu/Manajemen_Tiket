@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('status', ['open', 'in_progress', 'resolved', 'closed'])->default('open');
             $table->enum('priority', ['low', 'medium', 'high'])->default('medium');
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Customer yang membuat tiket
-            $table->foreignId('agent_id')->nullable()->constrained('users')->onDelete('set null'); // Agent yang menangani tiket
+            // $table->foreignId('agent_id')->nullable()->constrained('users')->onDelete('set null'); // Agent yang menangani tiket
             $table->timestamps();
         });
     }

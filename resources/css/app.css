@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Animasi Carousel */
+[data-carousel-item] {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+[data-carousel-item].active {
+  @apply block;
+}
+
+/* Posisi Gambar */
+[data-carousel-item] img {
+  @apply object-cover object-center;
+}

@@ -30,10 +30,10 @@
                         <!-- Role -->
                         <div class="mt-4">
                             <x-input-label for="roles" :value="__('Role')" />
-                            <select id="roles" name="roles" class="block mt-1 w-full" required>
-                                <option value="admin" {{ $user->roles == 'admin' ? 'selected' : '' }}>Admin</option>
-                                <option value="agent" {{ $user->roles == 'editor' ? 'selected' : '' }}>Agent</option>
-                                <option value="customer" {{ $user->roles == 'viewer' ? 'selected' : '' }}>Customer</option>
+                            <select id="roles" name="roles" class="block mt-1 w-full border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+                                <option value="Admin" {{ $user->roles == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="Agent" {{ $user->roles == 'Agent' ? 'selected' : '' }}>Agent</option>
+                                <option value="Customer" {{ $user->roles == 'Customer' ? 'selected' : '' }}>Customer</option>
                             </select>
                             <x-input-error :messages="$errors->get('roles')" class="mt-2" />
                         </div>

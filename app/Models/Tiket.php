@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tiket extends Model
 {
     protected $fillable = [
-        'title', 'description', 'status', 'priority', 'user_id', 'agent_id'
+        'title', 'description', 'status', 'priority', 'user_id'
     ];
 
     public function user()
@@ -15,8 +15,20 @@ class Tiket extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function agent()
+    public function edit(Tiket $ticket)
     {
-        return $this->belongsTo(User::class, 'agent_id');
+        return view('tickets.edit', compact('ticket'));
+    }
+
+    
+
+    // public function agent()
+    // {
+    //     return $this->belongsTo(User::class, 'agent_id');
+    // }
+
+    public function report()
+    {
+        return $this->hasOne(Report::class, 'ticket_id');
     }
 }

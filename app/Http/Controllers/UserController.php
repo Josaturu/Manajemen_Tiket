@@ -37,7 +37,8 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
             'password' => 'required|string',
-            'password_confirmation' => 'required|same:password'
+            'password_confirmation' => 'required|same:password',
+            'roles' => 'required|string',
         ]);
 
         try {
@@ -45,6 +46,7 @@ class UserController extends Controller
                 'name'  => $request->name,
                 'email' => $request->email,
                 'password' =>  Hash::make($request->password),
+                'roles' => $request->roles,
             ]);
 
             $user->save();

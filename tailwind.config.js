@@ -17,5 +17,7 @@ export default {
         },
     },
 
+    darkMode: 'class', // Aktifkan dark mode berbasis class
+
     plugins: [forms],
 };
